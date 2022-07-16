@@ -1,0 +1,169 @@
+@import "./../../../../assets/scss/colors.scss";
+@import "./../../../../assets/scss/fonts.scss";
+
+.game-area {
+  height: 100%;
+  position: relative;
+  top: 3.2em;
+
+  .slider,
+  .spinner {
+    align-items: center;
+    border-radius: 10em;
+    display: block;
+    justify-content: center;
+    padding: 0.6em 0 0.6em 0;
+    text-align: center;
+  }
+
+  .slider {
+    mat-slider {
+      border-radius: 10em;
+      margin: 0 0 0 0;
+      padding: 0 0 0 0;
+      width: 20em;
+    }
+  }
+
+  .spinner {
+    p {
+      margin: 10em 0 0 0;
+      padding: 0 0 0 0;
+    }
+  }
+
+  .play-area {
+    background-color: $custom-app-color-gray;
+    display: block;
+    height: 3.4em;
+
+    .score {
+      align-items: center;
+      font-family: $OpenSans_Bold;
+      margin: 0 0 0 0;
+      padding: 1em 0 0 0;
+      vertical-align: baseline;
+      span {
+        &.left {
+          float: left;
+        }
+        &.right {
+          float: right;
+        }
+      }
+      li {
+        color: $custom-app-color-body-background-main;
+        font-family: $OpenSans_Bold;
+        &.count {
+          background-color: $custom-app-color-footer-background;
+          border: 0.15em solid $custom-app-color-body-background-main;
+          margin: 0 0 0 0;
+          padding: 0.9em;
+        }
+        &.name {
+          &.left {
+            padding: 0 0 0 0.4em;
+          }
+          &.right {
+            padding: 0 0.4em 0 0;
+          }
+        }
+      }
+    }
+    .game {
+      align-items: center;
+      justify-content: center;
+      margin: 2.4em 0 0 0;
+      padding: 0 0 0 0;
+      position: relative;
+      text-align: center;
+
+      .options {
+        display: block;
+        padding: 0.8em;
+
+        img {
+          cursor: pointer;
+        }
+      }
+
+      .round-winner {
+        font-family: $OpenSans_Bold;
+        font-size: 0.85em;
+        margin: 3.8em 0 0 0;
+        padding: 0 0 0 0;
+        position: absolute;
+        text-align: center;
+        width: 100%;
+      }
+
+      .rounds {
+        align-items: center;
+        position: absolute;
+        width: 100%;
+        table{
+          margin: 0 auto;
+        }
+        table,
+        thead,
+        tr,
+        th,
+        td {
+          font-size: 0.9em;
+          padding: 0.5em;
+          text-align: left;
+          vertical-align: middle;
+        }
+        thead {
+          background-color: #808080;
+          border-radius: 8px;
+          color: #ffffff;
+          font-weight: bold;
+          height: 2em;
+        }
+      }
+    }
+  }
+
+  a:link,
+  a:visited,
+  a:active {
+    background-color: $custom-app-color-action-assign;
+    border: $custom-app-color-action-create;
+    border-radius: 10em;
+    color: $custom-app-color-action-create;
+    font-family: $OpenSans_Bold;
+    margin: 0 0 0 0;
+    padding: 0.75em 2em 0.75em 2em;
+  }
+  a:hover {
+    color: $custom-app-color-action-assign;
+    background-color: $custom-app-color-action-create;
+  }
+}
+
+#loading {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,118 @@
+<div class="game-area">
+  <div
+    class="slider"
+    [ngStyle]="{
+      display: !isGameAccepted && !isGameLoading ? 'block' : 'none'
+    }"
+  >
+    <p>How many game rounds would you like to play?</p>
+    <mat-slider
+      [disabled]="disabled"
+      [invert]="invert"
+      [max]="max"
+      [min]="min"
+      [step]="step"
+      [thumbLabel]="thumbLabel"
+      [tickInterval]="getSliderTickInterval()"
+      [(ngModel)]="gameNumberOfRounds"
+      [vertical]="vertical"
+    >
+    </mat-slider>
+    <p>
+      <strong>{{ gameNumberOfRounds }}</strong> game round(s) to win.
+    </p>
+    <a
+      href="#"
+      [ngStyle]="{
+        'pointer-events': gameNumberOfRounds >= 1 ? 'auto' : 'none'
+      }"
+      (click)="clickAcceptGame()"
+      >Let's Play!</a
+    >
+  </div>
+  <div
+    class="spinner"
+    [ngStyle]="{ display: isGameAccepted && isGameLoading ? 'block' : 'none' }"
+  >
+    <span class="sr-only" id="loading"></span>
+    <p>Game is loading...please wait</p>
+  </div>
+  <div
+    class="play-area"
+    [ngStyle]="{ display: isGameAccepted && !isGameLoading ? 'block' : 'none' }"
+  >
+    <div class="score">
+      <span class="left">
+        <ul>
+          <li class="count">{{ players[0]?.roundsWon }}</li>
+          <li class="name left">{{ players[0]?.name }}</li>
+        </ul>
+      </span>
+      <span>
+        First to win {{ gameNumberOfRounds }} round(s) is the winner of the game
+      </span>
+      <span class="right">
+        <ul>
+          <li class="name right">{{ players[1]?.name }}</li>
+          <li class="count">{{ players[1]?.roundsWon }}</li>
+        </ul>
+      </span>
+    </div>
+    <div class="game">
+      <div class="options" [ngClass]="{ 'animated bounce': isClicked }">
+        <img
+          *ngFor="let option of options"
+          class="img90"
+          [ngClass]="{ 'animated bounce': !isClicked }"
+          src="{{ option.imgSrc }}"
+          title="{{ option.name }}"
+          (click)="onButtonClickPlay(option)"
+        />
+      </div>
+      <div
+        class="round-winner"
+        [ngStyle]="{ display: currentRound ? 'block' : 'none' }"
+      >
+        {{ getRoundWinnerDisplay(currentRound) }}
+      </div>
+      <div class="row" [ngStyle]="{ display: currentRound ? 'block' : 'none' }">
+        <div class="column">
+          <strong>{{ currentRound?.playerOne?.name }}</strong> played
+          <br />
+          <img
+            class="img95"
+            src="{{ currentRound?.playerOne?.option?.imgSrc }}"
+          />
+        </div>
+        <div class="column">
+          <strong>{{ currentRound?.playerTwo?.name }}</strong> played
+          <br />
+          <img
+            class="img95"
+            src="{{ currentRound?.playerTwo?.option?.imgSrc }}"
+          />
+        </div>
+      </div>
+      <div class="rounds">
+        <table>
+          <thead>
+            <tr>
+              <th>Round #</th>
+              <th>{{ players[0]?.name }}(s) Choice</th>
+              <th>{{ players[1]?.name }}(s) Choice</th>
+              <th>Round Winner</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let round of game?.rounds; let roundNumber = index">
+              <td>{{ roundNumber + 1 }}</td>
+              <td>{{ round?.playerOne?.option?.name }}</td>
+              <td>{{ round?.playerTwo?.option?.name }}</td>
+              <td>{{ round?.display }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

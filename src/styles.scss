@@ -1,0 +1,185 @@
+/* You can add global styles to this file, and also import other style files */
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+//@import '~bootstrap/dist/css/bootstrap.min.css';
+//@import '~font-awesome/css/font-awesome.min.css';
+@import "~alertifyjs/build/css/alertify.min.css";
+@import "~alertifyjs/build/css/themes/bootstrap.min.css";
+//@import '~material-design-icons/iconfont/material-icons.css';
+@import "~animate.css/animate.min.css";
+@import "./assets/scss/colors.scss";
+@import "./assets/scss/fonts.scss";
+
+/* * {
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0;
+  transition: all 0.2s cubic-bezier(0.945, 0.020, 0.270, 0.665);
+} */
+
+html,
+body {
+  background-color: $custom-app-color-body-background-main;
+  font-family: $OpenSans_Light;
+  font-size: 1.15em;
+  height: 100%;
+  margin: 0;
+  overflow: hidden; /* Hide scrollbars */
+  padding: 0;
+  position: relative;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Screen larger than 600px? 2 column */
+@media (min-width: 600px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Screen larger than 900px? 3 columns */
+@media (min-width: 900px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+ul,
+li {
+  display: inline;
+  list-style: none;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+}
+
+img {
+  background-size: cover;
+  display: inline-block;
+  height: auto;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  text-align: left;
+  margin-left: 13px;
+  margin-right: 15px;
+  vertical-align: middle;
+
+  &.rounded {
+    border-radius: 12px;
+  }
+  &.img10 {
+    width: 10px;
+  }
+  &.img15 {
+    width: 15px;
+  }
+  &.img20 {
+    width: 20px;
+  }
+  &.img22 {
+    width: 22px;
+  }
+  &.img23 {
+    width: 23px;
+  }
+  &.img25 {
+    width: 25px;
+  }
+  &.img30 {
+    width: 30px;
+  }
+  &.img35 {
+    width: 35px;
+  }
+  &.img40 {
+    width: 40px;
+  }
+  &.img45 {
+    width: 45px;
+  }
+  &.img50 {
+    width: 50px;
+  }
+  &.img55 {
+    width: 55px;
+  }
+  &.img60 {
+    width: 60px;
+  }
+  &.img65 {
+    width: 65px;
+  }
+  &.img70 {
+    width: 70px;
+  }
+  &.img75 {
+    width: 75px;
+  }
+  &.img80 {
+    width: 80px;
+  }
+  &.img85 {
+    width: 85px;
+  }
+  &.img90 {
+    width: 90px;
+  }
+  &.img95 {
+    width: 95px;
+  }
+}
+
+a:link,
+a:visited,
+a:active {
+  cursor: pointer;
+  display: inline;
+  font-family: $OpenSans_Light;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  text-align: justify;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+.mat-slider.mat-slider-horizontal .mat-slider-wrapper {
+  top: 18px;
+}
+.mat-slider.mat-slider-horizontal .mat-slider-track-wrapper {
+  height: 12px;
+  border-radius: 10px;
+}
+.mat-slider.mat-slider-horizontal .mat-slider-track-background,
+.mat-slider.mat-slider-horizontal .mat-slider-track-fill {
+  height: 100%;
+}
+.mat-slider.mat-slider-horizontal .mat-slider-track-fill {
+  background-color: blue;
+}
+.mat-accent .mat-slider-thumb {
+  height: 30px;
+  width: 30px;
+  background-color: white;
+  border: solid 1px gray;
+  bottom: -20px;
+  right: -20px;
+}
+.mat-slider-min-value:not(.mat-slider-thumb-label-showing) .mat-slider-thumb {
+  background-color: white;
+}

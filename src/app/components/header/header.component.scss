@@ -1,0 +1,33 @@
+@import "./../../../assets/scss/colors.scss";
+@import "./../../../assets/scss/fonts.scss";
+
+.game-area-header {
+  align-items: center;
+  background-color: #353434;
+  display: flex;
+  color: whitesmoke;
+  font-family: $OpenSans_Bold;
+  font-size: 0.8em;
+  height: 4em;
+  justify-content: center;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  width: 100%;
+
+  a:link,
+  a:visited,
+  a:active {
+    color: $custom-app-color-action-create;
+    cursor: pointer;
+    display: inline;
+    font-family: $OpenSans_Bold;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    text-align: justify;
+    text-decoration: none;
+    vertical-align: middle;
+  }
+}
