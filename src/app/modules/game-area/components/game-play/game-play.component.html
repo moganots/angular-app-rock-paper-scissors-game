@@ -1,0 +1,25 @@
+<div
+  id="game-play-choices"
+  [ngClass]="{
+    'animated bounce':
+      this.currentGame?.isGameActive && this.currentGame?.isGameLoaded
+  }"
+  [ngStyle]="{
+    display:
+      currentGame?.isGameActive && currentGame?.isGameLoaded ? 'block' : 'none'
+  }"
+>
+  <img
+    *ngFor="let gameChoice of gameChoices"
+    class="img90"
+    [ngClass]="{ 'animated bounce': this.currentGame?.isOptionClicked }"
+    src="{{ gameChoice?.imgSrc }}"
+    title="{{ gameChoice?.name }}"
+    (click)="onButtonClickPlay(gameChoice)"
+  />
+  <app-game-play-round-winner
+    [currentGame]="currentGame"
+    [currentRound]="currentRound"
+  ></app-game-play-round-winner>
+  <app-game-play-results [currentGame]="currentGame"></app-game-play-results>
+</div>

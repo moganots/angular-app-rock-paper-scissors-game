@@ -1,0 +1,9 @@
+<div
+  id="spinner"
+  [ngStyle]="{
+    display: currentGame?.isGameActive && currentGame?.isGameLoading ? 'block' : 'none'
+  }"
+>
+  <span class="sr-only" id="loading"></span>
+  <p>Game is loading...please wait</p>
+</div>

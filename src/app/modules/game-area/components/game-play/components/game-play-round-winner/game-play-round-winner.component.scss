@@ -1,0 +1,24 @@
+@import "./../../../../../../../assets/scss/colors.scss";
+@import "./../../../../../../../assets/scss/fonts.scss";
+
+#game-play-round-winner {
+  font-family: $OpenSans_Light;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  text-align: center;
+}
+
+div {
+  img {
+    width: 6vw;
+  }
+}
+
+.game-play-round-winner-display {
+  font-family: $OpenSans_Bold;
+  justify-content: baseline;
+  margin: 0 0 0 0;
+  padding: 2.5em 0 0 0;
+  text-align: center;
+  vertical-align: middle;
+}

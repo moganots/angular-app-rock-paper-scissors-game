@@ -1,0 +1,33 @@
+@import "./../../../../../../../assets/scss/colors.scss";
+@import "./../../../../../../../assets/scss/fonts.scss";
+
+#game-play-results {
+  align-items: center;
+  flex: 1;
+  position: absolute;
+  overflow: auto;
+  width: 100%;
+  table {
+    margin: 0 auto;
+  }
+  table,
+  thead,
+  tr,
+  th,
+  td {
+    font-size: 0.9em;
+    padding: 0.5em;
+    text-align: left;
+    vertical-align: middle;
+    &.center {
+      text-align: center;
+    }
+  }
+  thead {
+    background-color: #808080;
+    border-radius: 8px;
+    color: #ffffff;
+    font-weight: bold;
+    height: 2em;
+  }
+}

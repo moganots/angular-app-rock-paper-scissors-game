@@ -1,0 +1,32 @@
+<div
+  id="slider"
+  [ngStyle]="{
+    display:
+      !currentGame?.isGameActive && !currentGame?.isGameLoading ? 'block' : 'none'
+  }"
+>
+  <p>How many game rounds would you like to play?</p>
+  <mat-slider
+    [disabled]="disabled"
+    [invert]="invert"
+    [max]="max"
+    [min]="min"
+    [step]="step"
+    [thumbLabel]="thumbLabel"
+    [tickInterval]="getSliderTickInterval()"
+    [(ngModel)]="currentGame.numberOfRounds"
+    [vertical]="vertical"
+  >
+  </mat-slider>
+  <p>
+    <strong>{{ currentGame?.numberOfRounds }}</strong> game round(s) to win.
+  </p>
+  <a
+    href="#"
+    [ngStyle]="{
+      'pointer-events': currentGame?.numberOfRounds >= 1 ? 'auto' : 'none'
+    }"
+    (click)="onButtonClickStartGame()"
+    >Let's Play!</a
+  >
+</div>

@@ -1,0 +1,29 @@
+<div
+  id="game-play-round-winner"
+  [ngStyle]="{
+    display:
+      currentGame?.isGameActive && currentGame?.isGameLoaded && currentGame?.isOptionClicked ? 'block' : 'none'
+  }"
+>
+  <div class="row">
+    <div class="column">
+      <strong>{{ currentRound?.playerOne?.name }}</strong> played
+      <br />
+      <img
+        class="img90"
+        src="{{ currentRound?.playerOne?.lastChoice?.imgSrc }}"
+      />
+    </div>
+    <div class="column game-play-round-winner-display">
+      {{ currentRound?.display }}
+    </div>
+    <div class="column">
+      <strong>{{ currentRound?.playerTwo?.name }}</strong> played
+      <br />
+      <img
+        class="img90"
+        src="{{ currentRound?.playerTwo?.lastChoice?.imgSrc }}"
+      />
+    </div>
+  </div>
+</div>

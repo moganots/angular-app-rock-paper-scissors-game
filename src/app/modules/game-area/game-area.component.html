@@ -1,0 +1,13 @@
+<div id="game-area">
+  <app-game-slider
+    [currentGame]="currentGame"
+    (clickStartGame)="onButtonClickStartGame()"
+  ></app-game-slider>
+  <app-game-spinner [currentGame]="currentGame"></app-game-spinner>
+  <app-game-score [currentGame]="currentGame"></app-game-score>
+  <app-game-play
+    [currentGame]="currentGame"
+    [currentRound]="currentRound"
+  ></app-game-play>
+</div>
+<!-- <app-game-finished-notification-dialog></app-game-finished-notification-dialog> -->

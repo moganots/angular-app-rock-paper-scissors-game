@@ -2,14 +2,13 @@
 @import "./../../../assets/scss/fonts.scss";
 
 .game-area-footer {
-  background-color: #353434;
+  background-color: $custom-app-color-header-background;
   bottom: 0;
   color: $custom-app-color-gainsboro;
   font-family: $OpenSans_Light;
-  font-size: 0.8em;
-  height: 3em;
+  font-size: 1.3vw;
   margin: 0 0 0 0;
-  padding: 0.8em 0 0 1em;
+  padding: 0.8em 0 0.8em 1em;
   position: fixed;
   width: 100%;
 

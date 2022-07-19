@@ -1,0 +1,19 @@
+<div
+  id="game-area-score"
+  [ngStyle]="{
+    display:
+      currentGame?.isGameActive && currentGame?.isGameLoaded ? 'block' : 'none'
+  }"
+>
+  <ul class="left">
+    <li class="count">{{ currentGame?.playerOne?.roundsWon }}</li>
+    <li class="name">{{ currentGame?.playerOne?.name }}</li>
+  </ul>
+  <p>First to win&nbsp;</p>
+  <p class="game-number-of-rounds">{{ currentGame?.numberOfRounds }}</p>
+  <p>&nbsp;round(s) is the winner of the game</p>
+  <ul class="right">
+    <li class="name">{{ currentGame?.playerTwo?.name }}</li>
+    <li class="count">{{ currentGame?.playerTwo?.roundsWon }}</li>
+  </ul>
+</div>

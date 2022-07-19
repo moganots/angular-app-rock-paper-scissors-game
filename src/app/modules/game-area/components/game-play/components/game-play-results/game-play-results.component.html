@@ -1,0 +1,32 @@
+<div
+  id="game-play-results"
+  [ngStyle]="{
+    display:
+      currentGame?.isGameActive &&
+      currentGame?.isGameLoaded &&
+      currentGame?.isOptionClicked
+        ? 'block'
+        : 'none'
+  }"
+>
+  <table>
+    <thead>
+      <tr>
+        <th>Round #</th>
+        <th>{{ currentGame?.playerOne?.name }}(s) Choice</th>
+        <th>{{ currentGame?.playerTwo?.name }}(s) Choice</th>
+        <th>Round Winner</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let gameRound of currentGame?.rounds; let roundNumber = index"
+      >
+        <td class="center">{{ roundNumber + 1 }}</td>
+        <td>{{ gameRound?.playerOne?.lastChoice?.name }}</td>
+        <td>{{ gameRound?.playerTwo?.lastChoice?.name }}</td>
+        <td>{{ gameRound?.display }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

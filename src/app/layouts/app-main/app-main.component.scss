@@ -1,0 +1,15 @@
+@import "./../../../assets/scss/colors.scss";
+@import "./../../../assets/scss/fonts.scss";
+
+#app-main-wrapper {
+  height: 100vh;
+  display: flex;
+
+  /* Direction of the items, can be row or column */
+  flex-direction: column;
+}
+
+header,
+footer {
+    height: 30px;
+}

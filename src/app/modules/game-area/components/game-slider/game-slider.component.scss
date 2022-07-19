@@ -1,0 +1,44 @@
+@import "./../../../../../assets/scss/colors.scss";
+@import "./../../../../../assets/scss/fonts.scss";
+
+#slider,
+#spinner {
+  align-items: center;
+  display: block;
+  justify-content: center;
+  margin: 4em 0 auto;
+  padding: 0.8em;
+  text-align: center;
+}
+
+#slider {
+  mat-slider {
+    border-radius: 10em;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    width: 20em;
+  }
+}
+
+#spinner {
+  p {
+    margin: 10em 0 0 0;
+    padding: 0 0 0 0;
+  }
+}
+
+a:link,
+a:visited,
+a:active {
+  background-color: $custom-app-color-action-assign;
+  border: $custom-app-color-action-create;
+  border-radius: 10em;
+  color: $custom-app-color-action-create;
+  font-family: $OpenSans_Bold;
+  margin: 0 0 0 0;
+  padding: 0.75em 2em 0.75em 2em;
+}
+a:hover {
+  color: $custom-app-color-action-assign;
+  background-color: $custom-app-color-action-create;
+}

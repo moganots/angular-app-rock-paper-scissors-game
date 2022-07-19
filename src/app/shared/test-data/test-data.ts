@@ -10,32 +10,32 @@ export class TestData {
   public static getPlayerById(id: number): any {
     return this.getGamePlayers()?.find((player, index) => index === id);
   }
-  public static getGameOptions(): any[] {
+  public static getgameChoices(): any[] {
     return [
       {
         index: 0,
         name: `Rock`,
-        imgSrc: `./../../../../assets/img/rock (0).png`,
+        imgSrc: `./../../../../assets/img/rock (1).png`,
       },
       {
         index: 1,
         name: `Paper`,
-        imgSrc: `./../../../../assets/img/paper (0).png`,
+        imgSrc: `./../../../../assets/img/paper (1).png`,
       },
       {
         index: 2,
         name: `Scissors`,
-        imgSrc: `./../../../../assets/img/scissors (0).png`,
+        imgSrc: `./../../../../assets/img/scissors (1).png`,
       },
     ];
   }
-  public static getGameOptionById(id: number): any {
-    return this.getGameOptions()?.find(
+  public static getgameChoiceById(id: number): any {
+    return this.getgameChoices()?.find(
       (option, index) => option?.index === id || index === id
     );
   }
-  public static getGameOptionByName(name: string): any {
-    return this.getGameOptions()?.find(
+  public static getgameChoiceByName(name: string): any {
+    return this.getgameChoices()?.find(
       (option) => option?.name === name
     );
   }
@@ -44,91 +44,91 @@ export class TestData {
       {
         playerOne: {
           name: this.getPlayerById(0)?.name,
-          option: this.getGameOptionById(0),
+          option: this.getgameChoiceById(0),
         },
         playerTwo: {
           name: this.getPlayerById(1)?.name,
-          option: this.getGameOptionById(0),
+          option: this.getgameChoiceById(0),
         },
       },
       {
         playerOne: {
           name: this.getPlayerById(0)?.name,
-          option: this.getGameOptionById(0),
+          option: this.getgameChoiceById(0),
         },
         playerTwo: {
           name: this.getPlayerById(1)?.name,
-          option: this.getGameOptionById(1),
+          option: this.getgameChoiceById(1),
         },
       },
       {
         playerOne: {
           name: this.getPlayerById(0)?.name,
-          option: this.getGameOptionById(0),
+          option: this.getgameChoiceById(0),
         },
         playerTwo: {
           name: this.getPlayerById(1)?.name,
-          option: this.getGameOptionById(2),
+          option: this.getgameChoiceById(2),
         },
       },
       {
         playerOne: {
           name: this.getPlayerById(0)?.name,
-          option: this.getGameOptionById(1),
+          option: this.getgameChoiceById(1),
         },
         playerTwo: {
           name: this.getPlayerById(1)?.name,
-          option: this.getGameOptionById(1),
+          option: this.getgameChoiceById(1),
         },
       },
       {
         playerOne: {
           name: this.getPlayerById(0)?.name,
-          option: this.getGameOptionById(1),
+          option: this.getgameChoiceById(1),
         },
         playerTwo: {
           name: this.getPlayerById(1)?.name,
-          option: this.getGameOptionById(0),
+          option: this.getgameChoiceById(0),
         },
       },
       {
         playerOne: {
           name: this.getPlayerById(0)?.name,
-          option: this.getGameOptionById(1),
+          option: this.getgameChoiceById(1),
         },
         playerTwo: {
           name: this.getPlayerById(1)?.name,
-          option: this.getGameOptionById(2),
+          option: this.getgameChoiceById(2),
         },
       },
       {
         playerOne: {
           name: this.getPlayerById(0)?.name,
-          option: this.getGameOptionById(2),
+          option: this.getgameChoiceById(2),
         },
         playerTwo: {
           name: this.getPlayerById(1)?.name,
-          option: this.getGameOptionById(0),
+          option: this.getgameChoiceById(0),
         },
       },
       {
         playerOne: {
           name: this.getPlayerById(0)?.name,
-          option: this.getGameOptionById(2),
+          option: this.getgameChoiceById(2),
         },
         playerTwo: {
           name: this.getPlayerById(1)?.name,
-          option: this.getGameOptionById(1),
+          option: this.getgameChoiceById(1),
         },
       },
       {
         playerOne: {
           name: this.getPlayerById(0)?.name,
-          option: this.getGameOptionById(2),
+          option: this.getgameChoiceById(2),
         },
         playerTwo: {
           name: this.getPlayerById(1)?.name,
-          option: this.getGameOptionById(2),
+          option: this.getgameChoiceById(2),
         },
       },
     ];

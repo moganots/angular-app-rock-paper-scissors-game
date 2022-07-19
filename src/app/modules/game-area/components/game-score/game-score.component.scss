@@ -1,0 +1,42 @@
+@import "./../../../../../assets/scss/colors.scss";
+@import "./../../../../../assets/scss/fonts.scss";
+
+#game-area-score {
+  background-color: $custom-app-color-gray;
+  color: $custom-app-color-whitesmoke;
+  font-family: $OpenSans_Bold;
+  font-size: 1.5vw;
+  padding: 0.5em;
+  text-align: center;
+  vertical-align: baseline;
+
+  ul {
+    &.left {
+      float: left;
+    }
+    &.right {
+      float: right;
+    }
+  }
+
+  li {
+    &.count {
+      background-color: $custom-app-color-footer-background;
+      border: 0.15em solid $custom-app-color-body-background-main;
+      margin: 0 0 0 0;
+      padding: 0.9em;
+    }
+    &.name {
+      margin: 0 0 0 0;
+      padding: 0.5em;
+    }
+  }
+
+  p {
+    display: inline;
+    &.game-number-of-rounds {
+      color: $custom-app-color-footer-background;
+      font-size: 1.3em;
+    }
+  }
+}
