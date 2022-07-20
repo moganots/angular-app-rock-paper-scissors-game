@@ -10,7 +10,6 @@ export class GameAreaComponent implements OnInit {
   @Input() public playerOne = TestData.getPlayerById(0);
   @Input() public playerTwo = TestData.getPlayerById(1);
   @Input() public currentGame: any;
-  @Input() public currentRound: any;
 
   constructor() {}
 
@@ -33,7 +32,6 @@ export class GameAreaComponent implements OnInit {
       rounds: [],
       winner: null,
     };
-    this.onResetGameRound(this.currentRound);
   }
 
   onResetPlayer(player: any): void {
@@ -41,15 +39,6 @@ export class GameAreaComponent implements OnInit {
       player.lastChoice = null;
       player.roundsWon = 0;
     }
-  }
-
-  onResetGameRound(round: any): void {
-    round = {
-      playerOne: this.currentGame?.playerOne,
-      playerTwo: this.currentGame?.playerTwo,
-      winner: null,
-      display: ``,
-    };
   }
 
   onButtonClickStartGame(): void {

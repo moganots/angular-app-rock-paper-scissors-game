@@ -2,7 +2,7 @@
   id="game-play-choices"
   [ngClass]="{
     'animated bounce':
-      this.currentGame?.isGameActive && this.currentGame?.isGameLoaded
+      (this.currentGame?.isGameActive && this.currentGame?.isGameLoaded) || isNewRound
   }"
   [ngStyle]="{
     display:
@@ -19,7 +19,7 @@
   />
   <app-game-play-round-winner
     [currentGame]="currentGame"
-    [currentRound]="currentRound"
+    [currentRound]="currentGame?.rounds[currentGame?.rounds?.length - 1]"
   ></app-game-play-round-winner>
   <app-game-play-results [currentGame]="currentGame"></app-game-play-results>
 </div>

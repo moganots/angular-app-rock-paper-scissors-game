@@ -1,23 +1,27 @@
 #spinner {
   align-items: center;
+  display: flex;
   justify-content: center;
-  margin: 9em 0 auto;
+  margin: 15vh auto;
+  padding: 0.8em;
+  position: relative;
+  text-align: center;
   vertical-align: baseline;
 
-  p {
-    padding: 6em 0 0 0;
+  P {
+    padding: 18vh 0 0 0;
     text-align: center;
   }
 }
 
 #loading {
-  display: block;
+  display: inline;
   position: absolute;
   left: 50%;
   top: 50%;
   z-index: 1;
-  width: 150px;
-  height: 150px;
+  width: 15vw;
+  height: 15vh;
   margin: -75px 0 0 -75px;
   border: 16px solid #f3f3f3;
   border-radius: 50%;

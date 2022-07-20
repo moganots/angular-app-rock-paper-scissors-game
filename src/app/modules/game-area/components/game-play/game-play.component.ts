@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TestData } from 'src/app/shared/test-data/test-data';
+import { Helpers } from 'src/app/shared/utilities/helpers';
 
 @Component({
   selector: 'app-game-play',
@@ -8,8 +9,8 @@ import { TestData } from 'src/app/shared/test-data/test-data';
 })
 export class GamePlayComponent implements OnInit {
   @Input() public currentGame: any;
-  @Input() public currentRound: any;
   gameChoices = TestData.getgameChoices();
+  isNewRound = false;
 
   constructor() {}
 
@@ -19,60 +20,46 @@ export class GamePlayComponent implements OnInit {
     if (
       this.currentGame?.numberOfRoundsPlayed < this.currentGame?.numberOfRounds
     ) {
+      this.isNewRound = true;
       this.currentGame.isOptionClicked = true;
       const playerTwoChoice = TestData.getgameChoiceById(
         Math.floor(Math.random() * 3)
       );
-      this.setPlayerGameRoundChoice(
-        this.currentRound?.playerOne,
-        playerOneChoice
-      );
-      this.setPlayerGameRoundChoice(
-        this.currentRound?.playerTwo,
-        playerTwoChoice
-      );
-      this.updateGameRound(this.currentGame, playerOneChoice, playerTwoChoice);
+      this.currentGame.playerOne.lastChoice = playerOneChoice;
+      this.currentGame.playerTwo.lastChoice = playerTwoChoice;
+      const gameRound = this.getCurrentGameNewRound();
+      Helpers.AddIf(gameRound, this.currentGame?.rounds);
+      console.clear();
+      console.log(gameRound);
+      console.log(this.currentGame?.rounds);
+      this.isNewRound = false;
+      this.currentGame.isOptionClicked = false;
       this.currentGame.numberOfRoundsPlayed++;
     }
   }
 
-  setPlayerGameRoundChoice(player: any, choice: any): void {
-    if (player && choice) {
-      player.lastChoice = choice;
-    }
-  }
-
-  updateGameRound(game: any, playerOneChoice: any, playerTwoChoice: any): void {
-    if (game && playerOneChoice && playerTwoChoice) {
-      game.playerOne.lastChoice = playerOneChoice;
-      game.playerTwo.lastChoice = playerTwoChoice;
-      this.updateCurrentGameRound(game);
-      game?.rounds?.push(this.currentRound);
-    }
-  }
-
-  updateCurrentGameRound(game: any): void {
-    if (game) {
-      this.currentRound = {
-        playerOne: game?.playerOne,
-        playerTwo: game?.playerTwo,
-        winner: this.getCurrentGameRoundWinner(game),
+  getCurrentGameNewRound(): any {
+    if (this.currentGame?.isOptionClicked && this.isNewRound) {
+      const roundWinner = this.getCurrentGameNewRoundWinner();
+      return {
+        playerOne: this.currentGame?.playerOne,
+        playerTwo: this.currentGame?.playerTwo,
+        winner: roundWinner,
+        display: this.getCurrentGameNewRoundWinnerDisplay(roundWinner),
       };
-      this.currentRound.display = this.getCurrentGameRoundWinnerDisplay(
-        this.currentRound
-      );
-      this.updatePlayerGameRoundWins(game, this.currentRound);
     }
+    return null;
   }
 
-  getCurrentGameRoundWinner(game: any): number {
-    return game &&
-      game?.playerOne?.lastChoice?.index ===
-        this.choiceBeats(game?.playerTwo?.lastChoice)
+  getCurrentGameNewRoundWinner(): number {
+    if (!this.currentGame?.isOptionClicked || !this.isNewRound) {
+      return 0;
+    }
+    return this.currentGame?.playerOne?.lastChoice?.index ===
+      this.choiceBeats(this.currentGame?.playerTwo?.lastChoice)
       ? 1
-      : game &&
-        game?.playerOne?.lastChoice?.index ===
-          this.choiceLosesTo(game?.playerTwo?.lastChoice)
+      : this.currentGame?.playerOne?.lastChoice?.index ===
+        this.choiceLosesTo(this.currentGame?.playerTwo?.lastChoice)
       ? 2
       : 0;
   }
@@ -85,20 +72,20 @@ export class GamePlayComponent implements OnInit {
     return choice?.index === 0 ? 2 : choice?.index - 1;
   }
 
-  getCurrentGameRoundWinnerDisplay(gameRound: any): string {
-    switch (gameRound?.winner) {
+  getCurrentGameNewRoundWinnerDisplay(roundWinner: number): any {
+    switch (roundWinner) {
       case 0:
-        return `Game Tied!`;
+        return 'Game Tied!';
       case 1:
-        return `${gameRound?.playerOne?.name} wins!`;
+        return `${this.currentGame?.playerOne?.name} win(s)`;
       case 2:
-        return `${gameRound?.playerTwo?.name} wins!`;
+        return `${this.currentGame?.playerOne?.name} win(s)`;
       default:
         return ``;
     }
   }
 
-  updatePlayerGameRoundWins(game: any, gameRound: any): void {
+  updateCurrentGamePlayerRoundWins(game: any, gameRound: any): void {
     if (game && gameRound) {
       switch (gameRound.winner) {
         case 1:
