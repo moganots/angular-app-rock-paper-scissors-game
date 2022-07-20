@@ -2,7 +2,7 @@
   id="game-area-score"
   [ngStyle]="{
     display:
-      currentGame?.isGameActive && currentGame?.isGameLoaded ? 'block' : 'none'
+      currentGame?.isGameActive && !currentGame?.isGameLoading ? 'block' : 'none'
   }"
 >
   <ul class="left">

@@ -6,11 +6,13 @@
   color: $custom-app-color-whitesmoke;
   font-family: $OpenSans_Bold;
   font-size: 1.5vw;
-  padding: 0.5em;
+  height: 3.4em;
+  padding: 0.6em;
   text-align: center;
   vertical-align: baseline;
 
   ul {
+    padding: 0.4em;
     &.left {
       float: left;
     }

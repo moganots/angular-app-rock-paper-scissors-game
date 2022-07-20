@@ -3,7 +3,7 @@
   [ngStyle]="{
     display:
       currentGame?.isGameActive &&
-      currentGame?.isGameLoaded &&
+      !currentGame?.isGameLoading &&
       currentGame?.isOptionClicked
         ? 'block'
         : 'none'

@@ -2,7 +2,7 @@
   id="game-play-round-winner"
   [ngStyle]="{
     display:
-      currentGame?.isGameActive && currentGame?.isGameLoaded && currentGame?.isOptionClicked ? 'block' : 'none'
+      currentGame?.isGameActive && !currentGame?.isGameLoading && currentGame?.isOptionClicked ? 'block' : 'none'
   }"
 >
   <div class="row">

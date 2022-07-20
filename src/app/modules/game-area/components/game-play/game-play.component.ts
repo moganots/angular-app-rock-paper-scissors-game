@@ -29,11 +29,8 @@ export class GamePlayComponent implements OnInit {
       this.currentGame.playerTwo.lastChoice = playerTwoChoice;
       const gameRound = this.getCurrentGameNewRound();
       Helpers.AddIf(gameRound, this.currentGame?.rounds);
-      console.clear();
-      console.log(gameRound);
-      console.log(this.currentGame?.rounds);
       this.isNewRound = false;
-      this.currentGame.isOptionClicked = false;
+      this.updateCurrentGamePlayerRoundWins();
       this.currentGame.numberOfRoundsPlayed++;
     }
   }
@@ -42,8 +39,8 @@ export class GamePlayComponent implements OnInit {
     if (this.currentGame?.isOptionClicked && this.isNewRound) {
       const roundWinner = this.getCurrentGameNewRoundWinner();
       return {
-        playerOne: this.currentGame?.playerOne,
-        playerTwo: this.currentGame?.playerTwo,
+        playerOne: { ...this.currentGame?.playerOne },
+        playerTwo: { ...this.currentGame?.playerTwo },
         winner: roundWinner,
         display: this.getCurrentGameNewRoundWinnerDisplay(roundWinner),
       };
@@ -79,28 +76,26 @@ export class GamePlayComponent implements OnInit {
       case 1:
         return `${this.currentGame?.playerOne?.name} win(s)`;
       case 2:
-        return `${this.currentGame?.playerOne?.name} win(s)`;
+        return `${this.currentGame?.playerTwo?.name} win(s)`;
       default:
         return ``;
     }
   }
 
-  updateCurrentGamePlayerRoundWins(game: any, gameRound: any): void {
-    if (game && gameRound) {
-      switch (gameRound.winner) {
-        case 1:
-          gameRound.playerOne.roundsWon++;
-          break;
-        case 2:
-          gameRound.playerTwo.roundsWon++;
-          break;
-      }
-      game.winner =
-        gameRound.playerOne.roundsWon > gameRound.playerTwo.roundsWon
-          ? gameRound.playerOne
-          : gameRound.playerOne.roundsWon < gameRound.playerTwo.roundsWon
-          ? gameRound.playerTwo
-          : null;
-    }
+  updateCurrentGamePlayerRoundWins(): void {
+    this.currentGame.playerOne.roundsWon = this.currentGame?.rounds?.filter(
+      (round) => round?.winner === 1
+    )?.length;
+    this.currentGame.playerTwo.roundsWon = this.currentGame?.rounds?.filter(
+      (round) => round?.winner === 2
+    )?.length;
+    this.currentGame.winner =
+      this.currentGame?.playerOne?.roundsWon >
+      this.currentGame?.playerTwo?.roundsWon
+        ? this.currentGame?.playerOne
+        : this.currentGame?.playerOne?.roundsWon <
+          this.currentGame?.playerTwo?.roundsWon
+        ? this.currentGame?.playerTwo
+        : null;
   }
 }

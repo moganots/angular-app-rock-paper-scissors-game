@@ -46,7 +46,6 @@ export class GameAreaComponent implements OnInit {
     this.currentGame.isGameLoading = true;
     this.sleep(5000).then((result) => {
       this.currentGame.isGameLoading = false;
-      this.currentGame.isGameLoaded = true;
     });
   }
 

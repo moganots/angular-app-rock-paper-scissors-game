@@ -2,17 +2,17 @@
   id="game-play-choices"
   [ngClass]="{
     'animated bounce':
-      (this.currentGame?.isGameActive && this.currentGame?.isGameLoaded) || isNewRound
+      (currentGame?.isGameActive && !currentGame?.isGameLoading) || isNewRound
   }"
   [ngStyle]="{
     display:
-      currentGame?.isGameActive && currentGame?.isGameLoaded ? 'block' : 'none'
+      currentGame?.isGameActive && !currentGame?.isGameLoading ? 'block' : 'none'
   }"
 >
   <img
     *ngFor="let gameChoice of gameChoices"
     class="img90"
-    [ngClass]="{ 'animated bounce': this.currentGame?.isOptionClicked }"
+    [ngClass]="{ 'animated bounce': currentGame?.isOptionClicked }"
     src="{{ gameChoice?.imgSrc }}"
     title="{{ gameChoice?.name }}"
     (click)="onButtonClickPlay(gameChoice)"
