@@ -4,15 +4,9 @@
 #game-play-results {
   align-items: center;
   flex: 1;
-  font-size: 1.25vw;
   position: absolute;
   overflow: auto;
   width: 100%;
-  table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    margin: 0 auto;
-  }
   table,
   thead,
   tr,
@@ -25,12 +19,17 @@
       text-align: center;
     }
   }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 0 auto;
+  }
   thead {
     background-color: $custom-app-color-gray;
     border-radius: 8px;
     color: $custom-app-color-white;
     font-weight: bold;
-    font-size: 1vw;
+    font-size: 1.18vw;
     height: 2em;
   }
   table tr:nth-child(even) {
@@ -39,6 +38,30 @@
   td {
     border-bottom: 1px solid $custom-app-color-black;
     border-top: 1px solid $custom-app-color-black;
-    font-size: .9vw;
+    font-size: 1.15vw;
+  }
+  .pagination {
+    display: inline-block;
+    font-size: 0.9vw;
+    margin: 0.7em 0 0 0;
+    padding: 0 0 0 0;
+  }
+  .pagination a {
+    color: black;
+    font-size: 0.9vw;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+  }
+  .pagination a.active {
+    background-color: #4caf50;
+    color: white;
+    border: 1px solid #4caf50;
+  }
+  .pagination a:hover:not(.active) {
+    background-color: #ddd;
   }
 }

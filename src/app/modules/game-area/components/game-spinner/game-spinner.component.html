@@ -5,8 +5,8 @@
       currentGame?.isGameActive && currentGame?.isGameLoading ? 'block' : 'none'
   }"
 >
-  <span class="sr-only" id="loading"></span>
+  <span class="sr-only" id="loading"> </span>
   <p [ngClass]="{ 'animated bounce': currentGame?.isGameLoading }">
-    Game is loading...
+    Game is loading
   </p>
 </div>
